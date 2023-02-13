@@ -15,16 +15,16 @@ const STYLE = {
     bgcolor: "primary.main",
   },
   title: {
-    m: 1
-  }
+    m: 1,
+  },
 };
 
-function Converter( {from, to, convert }) {
+function Converter({ converter }) {
   const [value, setValue] = useState("");
 
   const handleChange = (e) => {
     setValue(e.target.value);
-  }
+  };
 
   return (
     <Box sx={STYLE.box}>
@@ -32,7 +32,7 @@ function Converter( {from, to, convert }) {
         <FunctionsIcon />
       </Avatar>
       <Typography sx={STYLE.title} component="h1" variant="h5">
-        Convert {from} to {to}
+        Convert {converter.from} to {converter.to}
       </Typography>
       <TextField
         fullWidth
@@ -50,7 +50,7 @@ function Converter( {from, to, convert }) {
         id="filled-disabled"
         label="Result"
         variant="filled"
-        value={convert(value)}
+        value={converter.conversionFunction(value)}
       />
     </Box>
   );
