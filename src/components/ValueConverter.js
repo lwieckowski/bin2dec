@@ -53,7 +53,7 @@ function Converter({ converter }) {
         id="filled-disabled"
         label="Result"
         variant="filled"
-        value={input != "" && isValidInput ? converter.convert(input) : ""}
+        value={input !== "" && isValidInput ? converter.convert(input) : ""}
       />
     </Box>
   );
