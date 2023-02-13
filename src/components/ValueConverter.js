@@ -20,10 +20,11 @@ const STYLE = {
 };
 
 function Converter({ converter }) {
-  const [value, setValue] = useState("");
+  const [input, setInput] = useState("");
+  const isValidInput = converter.isValidInput(input);
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setInput(e.target.value);
   };
 
   return (
@@ -36,11 +37,13 @@ function Converter({ converter }) {
       </Typography>
       <TextField
         fullWidth
+        error={!isValidInput}
+        helperText={!isValidInput && "Not a binary number"}
         margin="dense"
         id="outlined-basic"
         label="Binary number"
         variant="outlined"
-        value={value}
+        value={input}
         onChange={handleChange}
       />
       <TextField
@@ -50,7 +53,7 @@ function Converter({ converter }) {
         id="filled-disabled"
         label="Result"
         variant="filled"
-        value={converter.conversionFunction(value)}
+        value={input != "" && isValidInput ? converter.convert(input) : ""}
       />
     </Box>
   );
