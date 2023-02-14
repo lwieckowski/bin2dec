@@ -1,6 +1,8 @@
 import FunctionsIcon from "@mui/icons-material/Functions";
-import { Avatar, Typography, TextField, Box } from "@mui/material";
+import { Avatar, Typography, Box } from "@mui/material";
 import { useState } from "react";
+import { InputField } from "./InputField";
+import { OutputField } from "./OutputField";
 
 function Converter({ converter }) {
   const [input, setInput] = useState("");
@@ -25,27 +27,17 @@ function Converter({ converter }) {
       <Typography sx={{ m: 1, textTransform: "capitalize"}} component="h1" variant="h5">
         Convert {converter.from} to {converter.to}
       </Typography>
-      <TextField
-        sx={{textTransform: "capitalize"}}
-        fullWidth
-        error={!isValidInput}
-        helperText={!isValidInput && `Not a ${converter.from} number`}
-        margin="dense"
-        id="outlined-basic"
+      <InputField
         label={`${converter.from} number`}
-        variant="outlined"
         value={input}
         onChange={handleChange}
+        error={!isValidInput}
+        helperText={`Not a ${converter.from} number`}
       />
-      <TextField
-        sx={{textTransform: "capitalize"}}
-        fullWidth
-        disabled
-        margin="dense"
-        id="filled-disabled"
+      <OutputField
         label="Result"
-        variant="filled"
         value={input !== "" && isValidInput ? converter.convert(input) : ""}
+        disabled={true}
       />
     </Box>
   );
