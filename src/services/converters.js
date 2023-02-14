@@ -6,11 +6,11 @@ const binaryToDecimal = {
    * @param {string} value - binary number.
    * @returns {number}
    */
-  convert: value => {
+  convert: (value) => {
     const digits = value.length;
     let result = 0;
     for (let index = 0; index < digits; index++) {
-        result += value[index] * Math.pow(2, digits - index - 1);
+      result += value[index] * Math.pow(2, digits - index - 1);
     }
     return result;
   },
@@ -19,12 +19,12 @@ const binaryToDecimal = {
    * @param {string} value - value to check.
    * @returns {boolean}
    */
-  isValidInput: value => {
+  isValidInput: (value) => {
     for (const digit of value) {
-        if (!(digit in [0, 1])) return false;
+      if (!(digit in [0, 1])) return false;
     }
     return true;
-  }
+  },
 };
 
 export default binaryToDecimal;

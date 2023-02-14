@@ -1,13 +1,13 @@
 import "./App.css";
-import StyledContainer from "./containers/StyledContainer";
-import ValueConverter from "./components/ValueConverter";
-import binaryToDecimal from "./services/Conversion";
+import { Layout } from "./components/Layout";
+import binaryToDecimal from "./services/converters";
+import Converter from "./components/Converter";
 
 function App() {
   return (
-    <StyledContainer>
-      <ValueConverter converter={binaryToDecimal} />
-    </StyledContainer>
+    <Layout>
+      <Converter converter={binaryToDecimal} />
+    </Layout>
   );
 }
 
