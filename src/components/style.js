@@ -35,7 +35,7 @@ const Input = styled.input`
         outline: none;
         border: 2px solid #1976D2;
     }
-    &:not(${(props) => !props.value === ""}) + ${Label} {
+    &:not(${(props) => !props.value == ""}) + ${Label} {
         font-size: 12px;
         height: 12px;
         padding-left: 4px;
@@ -50,10 +50,10 @@ const Output = styled(Input)`
     ${Label} {
         background-color: "#E0E0E0";
     }
-    &:not(${(props) => !props.value === ""}) {
+    &:not(${(props) => !props.value == ""}) {
         padding-top: 32px;
     }
-    &:not(${(props) => !props.value === ""}) + ${Label} {
+    &:not(${(props) => !props.value == ""}) + ${Label} {
         font-size: 12px;
         height: 12px;
         padding-left: 4px;
