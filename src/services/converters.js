@@ -1,3 +1,6 @@
+/**
+ * Binary to decimal converter object.
+ */
 const binaryToDecimal = {
   from: "binary",
   to: "decimal",
